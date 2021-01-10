@@ -1,16 +1,28 @@
 import './App.css';
+import { Route, Switch, Redirect } from 'react-router-dom';
 
-import Card from './components/Card/Card';
-import NavigationItems from './components/Navigation/NavigationItems/NavigationItems';
+import Navbar from './hoc/Navbar/Navbar';
+import Main from './containers/Main/Main';
+import About from './containers/About/About';
+import Contact from './containers/Contact/Contact';
+// import NavigationItems from './components/Navigation/NavigationItems/NavigationItems';
 
 function App() {
+
+  let routes = (
+    <Switch>
+      <Route path="/contact" component={Contact} />
+      <Route path="/about" component={About} />
+      <Route path="/" exact component={Main} />
+      <Redirect to="/" />
+    </Switch>
+  );
+
   return (
     <div className="App">
-      <NavigationItems />
-      <h1>Hi</h1>
-      <Card />
-      <Card />
-      <Card />
+      <Navbar>
+        {routes}
+      </Navbar>
     </div>
   );
 }

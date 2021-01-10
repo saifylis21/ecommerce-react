@@ -1,0 +1,7 @@
+.NavigationItem a {
+    color: white;
+}
+
+.NavigationItem a.active {
+    color: blue;
+}
