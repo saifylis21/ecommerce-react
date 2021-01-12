@@ -4,10 +4,10 @@ import classes from './Card.module.css';
 
 const Card = (props) => (
     <div className={classes.Card}>
-        {/* <a href='#'>img goes here</a> */}
+        <img src={props.img} />
         <div className="card-body">
-        <h4 className="card-title">Salt Lamp</h4>
-            <p>Radiate a beautiful warm pink-reddish glow</p>
+        <h4 className="card-title">{props.head}</h4>
+            <p>{props.desc}</p>
         </div>
     </div>
 )

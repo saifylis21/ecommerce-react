@@ -5,7 +5,6 @@ import Navbar from './hoc/Navbar/Navbar';
 import Main from './containers/Main/Main';
 import About from './containers/About/About';
 import Contact from './containers/Contact/Contact';
-// import NavigationItems from './components/Navigation/NavigationItems/NavigationItems';
 
 function App() {
 

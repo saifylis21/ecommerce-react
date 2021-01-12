@@ -13,6 +13,7 @@
 .Card img {
     border-radius: 0;
     transition: transform .2s;
+    max-width: 100px;
 }
 
 .Card img:hover {
