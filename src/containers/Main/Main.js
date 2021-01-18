@@ -4,7 +4,7 @@ import Card from '../../components/Card/Card';
 
 const Main = (props) => {
 
-    const [cardInfo, setCardInfo] = useState([
+    const [cardInfo] = useState([
         {
             heading: 'Salt Lamps',
             description: 'Radiate a beautiful warm pink-reddish glow',
