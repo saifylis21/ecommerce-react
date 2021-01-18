@@ -24,6 +24,12 @@ const Auth = (props) => {
         }
     });
 
+    const [signUp, setSignUp] = useState(true);
+
+    const switchAuthModeHandler = () => {
+        setSignUp(!signUp);
+    }
+
     const inputChangedHandler = ( event, controlName ) => {
         const updatedControls = updateObject( authForm, {
             [controlName]: updateObject( authForm[controlName], {
@@ -38,7 +44,7 @@ const Auth = (props) => {
         formElementsArray.push({
             id: key,
             config: authForm[key]
-        })
+        });
     }
 
     let form = formElementsArray.map(formElement => (
@@ -52,14 +58,23 @@ const Auth = (props) => {
 
     const submitHandler = (event) => {
         event.preventDefault();
+        if(!signUp) {
+            fire.auth().signInWithEmailAndPassword(authForm.email.value, authForm.password.value);
+            console.log("SIGN INED");
+        } else {
+            fire.auth().createUserWithEmailAndPassword(authForm.email.value, authForm.password.value);
+            console.log("SIGN UPED");
+        }
     }
 
     return (
-        <form onSubmit={submitHandler}>
-            {form}
-            <button>Click me</button>
-        </form>
-
+        <div>
+            <form onSubmit={submitHandler}>
+                {form}
+                <button>Submit</button>
+            </form>
+            <button onClick={switchAuthModeHandler}>Switch To {signUp ? "Sign IN" : "Sign Up"}</button>
+        </div>
     )
 }
 

@@ -5,15 +5,13 @@ import Navbar from './hoc/Navbar/Navbar';
 import Main from './containers/Main/Main';
 import About from './containers/About/About';
 import Contact from './containers/Contact/Contact';
-import Signup from './containers/Signup/Signup';
-import Login from './containers/Login/Login';
+import Auth from './containers/Auth/Auth';
 
 function App() {
 
   let routes = (
     <Switch>
-      <Route path="/login" component={Login}/>
-      <Route path="/signup" component={Signup}/>
+      <Route path="/auth" component={Auth}/>
       <Route path="/contact" component={Contact} />
       <Route path="/about" component={About} />
       <Route path="/" exact component={Main} />

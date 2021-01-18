@@ -9,8 +9,7 @@ const Navbar = (props) => (
             <NavigationItem link="/">Home</NavigationItem>
             <NavigationItem link="/about">About</NavigationItem>
             <NavigationItem link="/contact">Contact</NavigationItem>
-            <NavigationItem link="/signup">Sign Up</NavigationItem>
-            <NavigationItem link="/login">Log In</NavigationItem>
+            <NavigationItem link="/auth">Sign Up/Log In</NavigationItem>
         </ul>
         <main>{props.children}</main>
     </div>
