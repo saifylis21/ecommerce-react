@@ -1,39 +1,29 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 
 import Card from '../../components/Card/Card';
 
 const Main = (props) => {
 
-    const [cardInfo] = useState([
-        {
-            heading: 'Salt Lamps',
-            description: 'Radiate a beautiful warm pink-reddish glow',
-            image: 'https://static-01.daraz.pk/p/c32f2db33bbcf898f8f50d8d13dd6b78.jpg'
-        },
-        {
-            heading: 'Edible Salt',
-            description: 'A spoonful of goodness',
-            image: 'https://img1.exportersindia.com/product_images/bc-full/2019/2/6048163/himalayan-edible-salt-1550560825-4605112.jpeg'
-        },
-        {
-            heading: 'Bath Salt',
-            description: 'Be salty with us',
-            image: 'https://www.spiritualquest.com/wp-content/uploads/2014/12/bath-chunks-himalayan-chunks-large.jpg'
-        }
-    ]);
+    const [cardInfo, setCardInfo] = useState(null);
 
-    const cards = cardInfo.map((card) => {
-        return (
-            <Card head={card.heading} desc={card.description} img={card.image}/>
-        )
-    })
-
+    useEffect(() => {
+        axios.get('https://ecommerce-react-dcc39-default-rtdb.firebaseio.com/.json')
+        .then((response) => {
+            setCardInfo(response.data.cardInfo);
+            console.log(cardInfo)
+        })
+        .catch((err) => {
+            console.log(err);
+        })
+    }, [cardInfo]);
 
     return (
         <div>
-            {cards}
+            {/* {cards} */}
+            <h1>testin</h1>
         </div>
     )
 }
 
-export default Main;
+export default React.memo(Main);

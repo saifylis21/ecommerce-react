@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
+// import { Redirect } from 'react-router-dom';
 
 import Input from '../../components/Input/Input';
-import fire from '../../fire';
 import {updateObject} from '../../update';
 
 const Auth = (props) => {
@@ -57,14 +57,20 @@ const Auth = (props) => {
     ));
 
     const submitHandler = (event) => {
-        event.preventDefault();
-        if(!signUp) {
-            fire.auth().signInWithEmailAndPassword(authForm.email.value, authForm.password.value);
-            console.log("SIGN INED");
-        } else {
-            fire.auth().createUserWithEmailAndPassword(authForm.email.value, authForm.password.value);
-            console.log("SIGN UPED");
-        }
+        // event.preventDefault();
+        // if(!signUp) {
+        //     fire.auth().signInWithEmailAndPassword(authForm.email.value, authForm.password.value)
+        //     .then(user => console.log(user))
+        //     .catch(error => console.log(error));
+        //     // <Redirect to="/" />
+        //     console.log("SIGN INED");
+        // } else {
+        //     fire.auth().createUserWithEmailAndPassword(authForm.email.value, authForm.password.value)
+        //     .then(user => console.log(user))
+        //     .catch(error => console.log(error));
+        //     // <Redirect to="/about" />
+        //     console.log("SIGN UPED");
+        // }
     }
 
     return (
