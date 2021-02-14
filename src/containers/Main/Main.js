@@ -5,22 +5,29 @@ import Card from '../../components/Card/Card';
 
 const Main = (props) => {
 
-    const [cardInfo, setCardInfo] = useState(null);
+    const [cardInfo, setCardInfo] = useState({});
 
     useEffect(() => {
         axios.get('https://ecommerce-react-dcc39-default-rtdb.firebaseio.com/.json')
         .then((response) => {
             setCardInfo(response.data.cardInfo);
-            console.log(cardInfo)
         })
         .catch((err) => {
             console.log(err);
-        })
-    }, [cardInfo]);
+        });
+    }, []);
+
+    let cards = null;
+    cards = Object.keys(cardInfo).map((cardKey) => {
+        let card = cardInfo[cardKey];
+        return (
+            <Card head={card.heading} img={card.image} desc={card.description}/>
+        )
+    });
 
     return (
         <div>
-            {/* {cards} */}
+            {cards}
             <h1>testin</h1>
         </div>
     )

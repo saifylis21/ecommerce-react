@@ -10,7 +10,6 @@ const Card = (props) => (
             <p>{props.desc}</p>
         </div>
     </div>
-)
-
+);
 
 export default Card;
